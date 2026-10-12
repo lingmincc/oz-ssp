@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; form-action 'none'; base-uri 'self'">
+  <meta name="referrer" content="no-referrer">
+  <title>媒体自助平台 · 登录</title>
+  <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="card-title">
+      <h1 id="card-title">媒体自助平台</h1>
+      <p class="subtitle">欢迎回来，请登录您的账号</p>
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="username">用户名</label>
+          <input id="username" name="username" type="text" autocomplete="username" maxlength="32" placeholder="请输入用户名" required aria-describedby="username-error">
+          <p id="username-error" class="error" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="password">密码</label>
+          <div class="input-row">
+            <input id="password" name="password" type="password" autocomplete="current-password" maxlength="64" placeholder="请输入密码" required aria-describedby="password-error">
+            <button id="toggle-password" type="button" class="ghost-btn" aria-pressed="false" aria-label="显示或隐藏密码">显示</button>
+          </div>
+          <p id="password-error" class="error" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="captcha">验证码</label>
+          <div class="input-row">
+            <input id="captcha" name="captcha" type="text" maxlength="8" autocomplete="off" placeholder="请输入图中验证码" required aria-describedby="captcha-hint captcha-error">
+            <canvas id="captcha-canvas" width="120" height="40" role="img" aria-label="图形验证码"></canvas>
+            <button id="captcha-refresh" type="button" class="ghost-btn" aria-label="更换验证码">换一张</button>
+          </div>
+          <p id="captcha-hint" class="hint">验证码不区分大小写，点击"换一张"可更换</p>
+          <p id="captcha-error" class="error" role="alert"></p>
+        </div>
+        <button id="submit-btn" type="submit">登 录</button>
+        <p id="form-status" class="status" role="status"></p>
+      </form>
+    </section>
+    <p class="footer">仅前端演示页面 · 未连接任何后端服务 · 不会上传或存储您的输入</p>
+  </main>
+  <script type="module" src="assets/js/login.mjs"></script>
+</body>
+</html>
